@@ -1,20 +1,14 @@
-import React from "react";
-import Restaurant from "./restaurant";
+import React from 'react';
+import Restaurant from './restaurant';
 
-const RestaurantContainer = (props) => {
+function RestaurantContainer(props) {
+  const renderList = (restaurants) => restaurants.map((rest) => <Restaurant name={rest.name} cuisineType={rest.cuisineType} stars={rest.stars} key={rest.name} />);
 
-    
-
-
-    const renderList = (restaurants) => {
-        return restaurants.map(rest => <Restaurant name={rest.name} cuisineType={rest.cuisineType} stars={rest.stars} key={rest.name}/>)
-    }
-
-    return (
-        <div>
-            {renderList(props.data)}
-        </div>
-    )
+  return (
+    <div>
+      {renderList(props.data)}
+    </div>
+  );
 }
 
-export default RestaurantContainer
+export default RestaurantContainer;
